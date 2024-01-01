@@ -1,0 +1,19 @@
+function T=smtKc(vxx,vyy,vzz,vxz,vyz,vxy,IId,DDd,II0d,DD0d)
+G=6.67*10^-2;
+II = pi * IId / 180.;
+DD = pi * DDd / 180.;
+II0 = pi * II0d / 180.;
+DD0 = pi * DD0d / 180.;
+alphaM = cos(II) * cos(DD);
+betaM = cos(II) * sin(DD);
+gammaM = sin(II);
+alphaT = cos(II0) * cos(DD0);
+betaT = cos(II0) * sin(DD0);
+gammaT = sin(II0);
+bx = (alphaM*vxx + betaM*vxy + gammaM*vxz);
+by = (alphaM*vxy + betaM*vyy + gammaM*vyz);
+bz = (alphaM*vxz + betaM*vyz + gammaM*vzz);
+dt = bx * alphaT + by * betaT + bz * gammaT;
+% dt = sqrt(bx.^2 + by.^2 + bz.^2;
+T= dt * 100 / G;
+end
