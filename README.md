@@ -1,0 +1,1 @@
+# Joint_Inversion_of_Gravity_and_Magnetic_Data
