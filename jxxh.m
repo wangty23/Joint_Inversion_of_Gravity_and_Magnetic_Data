@@ -1,16 +1,13 @@
 function ASS=jxxh(T,nx,ny,lx,ly)
-dd=reshape(T,ny,nx);%数据数组恢复成nx×ny的网格数据
+dd=reshape(T,ny,nx);
 [ddkb,Nkb,NxL,NyL,NxR,NyR]=kuobian(dd,nx,ny);
-%% 波数
-u=fftshift((1:Nkb)-Nkb/2-1);%x方向波数
+u=fftshift((1:Nkb)-Nkb/2-1);
 u=-2*pi.*(u)./((Nkb-1)*lx);
-v=fftshift((1:Nkb)-Nkb/2-1);%y方向波数
+v=fftshift((1:Nkb)-Nkb/2-1);
 v=-2*pi.*(v)./((Nkb-1)*ly);
 [uu,vv]=meshgrid(u,v);
 w=sqrt(uu.^2+vv.^2);
-%% FFT
 Fddkb=fft2(ddkb);
-%% 求导
 [ddkbx,ddkby]=gradient(ddkb);
 %x
 ddx=ddkbx(NyL+1:NyL+ny,NxL+1:NxL+nx)/lx;
