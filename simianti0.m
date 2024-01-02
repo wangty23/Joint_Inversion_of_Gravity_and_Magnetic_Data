@@ -1,5 +1,4 @@
-%% 四面体重力异常正�?
-function g=simianti0(xyz0,xyz,type)%xyz0:观测点坐�?xyz: 四面体各个角点坐�?
+function g=simianti0(xyz0,xyz,type)
 switch(type)
     case 'Vz'
         g=simianti(xyz0,xyz);
