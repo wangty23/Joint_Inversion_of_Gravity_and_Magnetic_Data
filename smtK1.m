@@ -9,10 +9,9 @@ end
 for i=1:nobs
     disp(i);
     xyz_obs=xyz(i,:);
-    %% CPU
+    %% 
     for j=1:N
         G(i,j)=simianti0(xyz_obs,xyz_cor(:,:,j),type);
-        %G(u,v)=simiantiC(xyz_obs,xyz_cor,II,DD,II0,DD0);
     end
 end
 end
