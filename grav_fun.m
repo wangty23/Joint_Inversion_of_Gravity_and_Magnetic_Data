@@ -1,7 +1,6 @@
 function Vij = grav_fun(Vcc, xyz0,xyz,size0)
 G=6.67*10^-6;
 o=1e-3;
-%% 观测点与立方体最小点与最大点的相对位置
 obs_model=[xyz0-xyz+size0./2;xyz0-xyz-size0./2]';
 %%
 Vij = 0;
