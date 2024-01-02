@@ -1,9 +1,7 @@
-%% 四面体重力异常正�?
-function g=simiantizz(xyz0,xyz)%xyz0:观测点坐�?xyz: 四面体各个角点坐�?
+function g=simiantizz(xyz0,xyz)
 G=6.67*10^-2;
 xyzV=zeros(4,6);
 xyzV(:,1:3)=[2,3,4;1,3,4;1,2,4;1,2,3];
-%% 求外法向
 for i=1:4
     p1=xyz(xyzV(i,2),:)-xyz(xyzV(i,1),:);
     p2=xyz(xyzV(i,3),:)-xyz(xyzV(i,1),:);
@@ -20,10 +18,8 @@ for i=1:4
         xyzV(i,3)=ssss;
     end
 end
-%% 正演
 g=0;
 for j=1:4
-    %% 夹角
     cosp=xyzV(j,6);
     sinp=sqrt(1-cosp^2);
     if(cosp==-1)
@@ -41,7 +37,6 @@ for j=1:4
     if(cosp==0)
         continue;
     end
-    %% 1
     for k=1:3
         if(k<3)
             kk=k+1;
